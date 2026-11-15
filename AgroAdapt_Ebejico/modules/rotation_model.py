@@ -1,55 +1,111 @@
-# Motor inicial de comparación multicriterio.
-# Este módulo es un ESQUELETO: las puntuaciones y reglas deben acordarse con el
-# integrante responsable del modelo agrícola y validarse con asesoría agronómica.
-# No presentar el resultado como recomendación agronómica definitiva.
+"""
+Motor multicriterio de comparación de rotaciones de AgroAdapt Ebéjico.
 
-DEFAULT_WEIGHTS = {
-    "climate": 0.25,
-    "soil": 0.25,
-    "soil_health": 0.20,
-    "production": 0.20,
-    "farmer_priority": 0.10,
-}
+No convierte datos faltantes en puntuaciones. Una alternativa solo recibe
+puntaje total cuando los cinco criterios tienen valores y no hay restricciones
+bloqueantes declaradas por el análisis agronómico.
+"""
+from modules.rotation_criteria import DEFAULT_WEIGHTS, validate_weights
 
-def weighted_score(criteria_scores, weights=None):
-    """
-    Calcula un puntaje ponderado entre 0 y 100.
-    criteria_scores: diccionario con claves iguales a DEFAULT_WEIGHTS y valores 0-100.
-    """
+SCORE_KEYS = tuple(DEFAULT_WEIGHTS.keys())
+
+def weighted_score(criteria_scores: dict, weights: dict | None = None) -> float:
+    """Promedio ponderado de criterios disponibles; función matemática auxiliar."""
     weights = weights or DEFAULT_WEIGHTS
-    if not criteria_scores:
-        raise ValueError("No se recibieron puntuaciones para evaluar.")
-
-    active = {key: weight for key, weight in weights.items() if key in criteria_scores}
-    if not active:
-        raise ValueError("No hay criterios compatibles entre pesos y puntuaciones.")
-
-    total_weight = sum(active.values())
-    if total_weight <= 0:
-        raise ValueError("La suma de los pesos debe ser mayor que cero.")
-
-    for key in active:
-        value = float(criteria_scores[key])
+    validate_weights(weights)
+    available = {
+        key: float(criteria_scores[key])
+        for key in weights
+        if key in criteria_scores and criteria_scores[key] is not None
+    }
+    if not available:
+        raise ValueError("No hay criterios evaluables para calcular el puntaje.")
+    for key, value in available.items():
         if not 0 <= value <= 100:
-            raise ValueError(f"La puntuación de {key} debe estar entre 0 y 100.")
+            raise ValueError(f"El criterio '{key}' debe estar entre 0 y 100.")
+    active_weight = sum(weights[key] for key in available)
+    if active_weight <= 0:
+        raise ValueError("Los criterios disponibles tienen peso total cero.")
+    return sum(available[key] * weights[key] for key in available) / active_weight
 
-    return sum(float(criteria_scores[k]) * active[k] for k in active) / total_weight
+def evaluate_rotation(rotation: dict, weights: dict | None = None) -> dict:
+    """Evalúa una alternativa; no asigna total si faltan criterios o hay bloqueos."""
+    weights = weights or DEFAULT_WEIGHTS
+    validate_weights(weights)
+    scores = rotation.get("scores") or {}
+    normalized_scores = {key: scores.get(key) for key in SCORE_KEYS}
+    missing = [key for key in SCORE_KEYS if normalized_scores.get(key) is None]
 
-def compare_rotations(rotation_records):
-    """
-    Recibe una lista de escenarios:
-    [{"name": "...", "scores": {...}, "description": "..."}]
-    Devuelve escenarios con puntuación. En la integración real, scores vendrán
-    del motor del integrante 2; esta función solo estandariza la presentación.
-    """
-    results = []
-    for item in rotation_records:
-        score = weighted_score(item["scores"])
-        results.append({
+    raw_limitations = rotation.get("limitations") or []
+    if isinstance(raw_limitations, str):
+        limitations = [raw_limitations] if raw_limitations else []
+    else:
+        limitations = list(raw_limitations)
+
+    blocking = rotation.get("blocking_constraints") or []
+    if isinstance(blocking, str):
+        blocking = [blocking] if blocking else []
+
+    # Validate any supplied score even if the alternative is not yet evaluable.
+    for key, value in normalized_scores.items():
+        if value is not None:
+            number = float(value)
+            if not 0 <= number <= 100:
+                raise ValueError(f"El criterio '{key}' debe estar entre 0 y 100.")
+            normalized_scores[key] = number
+
+    if missing:
+        limitations.append("Criterios sin información suficiente: " + ", ".join(missing))
+    if blocking:
+        limitations.append("Restricciones bloqueantes: " + "; ".join(map(str, blocking)))
+
+    evaluable = not missing and not blocking
+    total = round(weighted_score(normalized_scores, weights), 1) if evaluable else None
+    evidence_status = rotation.get("evidence_status", "pending_local_validation")
+    if not evaluable:
+        evidence_status = "insufficient_evidence" if missing else "blocked_by_constraint"
+
+    result = {
+        "name": rotation["name"],
+        "description": rotation.get("description", ""),
+        "scores": normalized_scores,
+        "total_score": total,
+        # Alias temporal para compatibilidad con pages/4_Rotaciones.py existente.
+        "score": total,
+        "limitations": "; ".join(limitations) if limitations else "No reportadas.",
+        "evidence_status": evidence_status,
+        "sequence": rotation.get("sequence", []),
+        "sources": rotation.get("sources", []),
+        "evaluable": evaluable,
+        "blocking_constraints": list(blocking),
+    }
+    return result
+
+def compare_rotations(rotations: list[dict], weights: dict | None = None) -> list[dict]:
+    """Ordena alternativas evaluables primero; las no evaluables quedan al final."""
+    results = [evaluate_rotation(item, weights) for item in rotations]
+    return sorted(
+        results,
+        key=lambda item: (
+            item["evaluable"],
+            item["total_score"] if item["total_score"] is not None else -1
+        ),
+        reverse=True
+    )
+
+def to_streamlit_contract(results: list[dict]) -> list[dict]:
+    """Entrega el contrato de salida sin ocultar faltantes ni restricciones."""
+    return [
+        {
             "name": item["name"],
-            "score": round(score, 1),
-            "description": item.get("description", ""),
+            "description": item["description"],
             "scores": item["scores"],
-            "limitations": item.get("limitations", "Pendiente de documentar."),
-        })
-    return sorted(results, key=lambda x: x["score"], reverse=True)
+            "limitations": item["limitations"],
+            "total_score": item["total_score"],
+            "evidence_status": item["evidence_status"],
+            "evaluable": item["evaluable"],
+            "blocking_constraints": item["blocking_constraints"],
+            "sources": item["sources"],
+        }
+        for item in results
+    ]

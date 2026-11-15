@@ -1,0 +1,22 @@
+﻿nivel,componente,detalle,cantidad
+OK,estructura,Columnas obligatorias y estructura reconocidas.,
+OK,identificacion_cultivos,Los 12 identificadores esperados están presentes.,12
+PENDIENTE,cycle_days_min,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,cycle_days_max,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,water_requirement,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,temperature_min_c,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,temperature_opt_min_c,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,temperature_opt_max_c,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,temperature_max_c,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,soil_texture,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,soil_ph_min,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,soil_ph_max,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,root_depth_cm,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,nutrient_notes,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,soil_cover_notes,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,rotation_notes,Requiere fuente técnica y/o validación local; no rellenar por suposición.,12/12
+PENDIENTE,technical_source,Requiere fuente técnica y/o validación local; no rellenar por suposición.,1/12
+INFO,estado_evidencia,pending_local_validation,12
+OK,plantilla_referencias,Plantilla de referencias trazables reconocida.,
+OK,registros_referencias,"Referencias normalizadas, con cultivos y fuentes trazables.",58
+INFO,catalogo_secundario,Catálogo descriptivo anterior conservado; no sustituye al catálogo principal.,12

@@ -12,7 +12,9 @@ GEOGRAPHIC_DIR = DATA_DIR / "geographic"
 BOUNDARY_FILE = GEOGRAPHIC_DIR / "ebejico_boundary.geojson"
 ZONES_FILE = GEOGRAPHIC_DIR / "agricultural_zones.geojson"
 ENVIRONMENT_FILE = PROCESSED_DIR / "environment_demo.csv"
+ENVIRONMENTAL_INDICATORS_FILE = PROCESSED_DIR / "environmental_indicators.csv"
 CROPS_FILE = PROCESSED_DIR / "crops_catalog.csv"
+AGRONOMIC_REFERENCES_FILE = PROCESSED_DIR / "agronomic_reference_records.csv"
 
 # Centro aproximado únicamente para encuadrar el mapa cuando todavía no hay geometría.
 # No es un límite oficial ni debe utilizarse para análisis espacial.

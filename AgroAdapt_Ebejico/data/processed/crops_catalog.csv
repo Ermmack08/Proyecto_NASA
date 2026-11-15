@@ -1,6 +1,13 @@
-crop,family,cycle,water_requirement,root_depth,soil_requirements,nutritional_notes,rotation_notes,source
-Maíz,Poaceae,Pendiente de verificar,Pendiente,Pendiente,Pendiente,Pendiente,Completar con validación local,Por verificar
-Fríjol,Fabaceae,Pendiente de verificar,Pendiente,Pendiente,Pendiente,Pendiente,Completar con validación local,Por verificar
-Yuca,Euphorbiaceae,Pendiente de verificar,Pendiente,Pendiente,Pendiente,Pendiente,Completar con validación local,Por verificar
-Café,Rubiaceae,Permanente; verificar variedad y sistema,Pendiente,Pendiente,Pendiente,Pendiente,Evaluar asociación/cobertura y renovación,Por verificar
-Plátano,Musaceae,Permanente o ciclo largo según sistema,Pendiente,Pendiente,Pendiente,Pendiente,Evaluar asociación y manejo del sistema,Por verificar
+﻿crop_id,crop,scientific_name,family,crop_cycle,cycle_days_min,cycle_days_max,water_requirement,temperature_min_c,temperature_opt_min_c,temperature_opt_max_c,temperature_max_c,soil_texture,soil_ph_min,soil_ph_max,root_depth_cm,nutrient_notes,soil_cover_notes,rotation_notes,local_evidence,technical_source,evidence_status
+AGU,Aguacate,Persea americana,Lauraceae,permanente,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S7,pending_local_validation
+CAC,Cacao,Theobroma cacao,Malvaceae,permanente,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S8,pending_local_validation
+CAF,Café,Coffea spp.,Rubiaceae,permanente,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,,pending_local_validation
+CAN,Caña,Saccharum spp.,Poaceae,semipermanente/permanente según sistema,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S10,pending_local_validation
+FRI,Fríjol,Phaseolus spp.,Fabaceae,transitorio,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S1,pending_local_validation
+LIM,Lima,Citrus spp. por confirmar,Rutaceae por confirmar,permanente por confirmar,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S11,pending_local_validation
+LIMON,Limón,Citrus spp. por confirmar,Rutaceae,permanente,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S11,pending_local_validation
+MAR,Maracuyá,Passiflora spp. por confirmar,Passifloraceae,ciclo productivo limitado; confirmar,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S12,pending_local_validation
+MAI,Maíz,Zea mays,Poaceae,transitorio,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S2; S5,pending_local_validation
+PLA,Plátano,Musa spp.,Musaceae,permanente/producción continua según sistema,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S13,pending_local_validation
+TOM,Tomate,Solanum lycopersicum por confirmar,Solanaceae,transitorio,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S3,pending_local_validation
+YUC,Yuca,Manihot esculenta,Euphorbiaceae,ciclo variable según variedad,,,,,,,,,,,,,,,Presencia municipal en EVA 2019-2025; no implica aptitud por parcela.,S4,pending_local_validation

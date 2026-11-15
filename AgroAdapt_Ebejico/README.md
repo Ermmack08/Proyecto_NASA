@@ -1,95 +1,116 @@
-# AgroAdapt Ebéjico — plantilla inicial
+# AgroAdapt Ebéjico — paquete EVA e Integrante 2
 
-## 1. Requisitos
-- Python 3.10 o superior.
-- pip.
-- Visual Studio Code u otro editor.
+Este paquete contiene el módulo del Integrante 2 y la base EVA 2019–2025 que se va a procesar para Ebéjico, Antioquia.
 
-## 2. Instalación en Windows (PowerShell)
-```powershell
-# Entrar a la carpeta del proyecto
-cd ruta\AgroAdapt_Ebejico
+## Qué incluye
 
-# Crear entorno virtual
-py -m venv .venv
+- `modules/`: cargador EVA, catálogo de cultivos y modelo multicriterio de rotaciones.
+- `scripts/process_eva.py`: procesa la base EVA y genera archivos de salida.
+- `data/raw/eva/eva_2019_2025_base_agricola.csv`: CSV original suministrado. No editarlo.
+- `data/processed/`: catálogo agronómico inicial y resultados procesados.
+- `docs/`: criterios y contrato de integración con el Integrante 3.
 
-# Activarlo
-.\.venv\Scripts\Activate.ps1
+## Ejecutar en WSL (Ubuntu)
 
-# Instalar dependencias
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+Abre la terminal integrada de VS Code y ejecuta los comandos desde la carpeta raíz `AgroAdapt_Ebejico`.
 
-# Ejecutar la aplicación
-streamlit run app.py
+Si descargaste/descomprimiste este paquete dentro de `Proyecto_NASA`, la ruta de la captura es:
+
+```bash
+cd "/mnt/c/Users/Emmag/OneDrive/Escritorio/Proyecto_NASA/AgroAdapt_Ebejico"
 ```
 
-Si PowerShell bloquea la activación, se puede ejecutar:
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
+Comprueba que estás en la carpeta correcta:
+
+```bash
+pwd
+ls
 ```
 
-## 3. Estructura
-- `app.py`: página principal y resumen.
-- `pages/`: páginas que Streamlit detecta automáticamente.
-- `modules/`: funciones compartidas de carga, mapas, indicadores y modelo.
-- `data/raw/`: fuentes originales sin modificar.
-- `data/processed/`: archivos limpios y derivados para la interfaz.
-- `data/geographic/`: límites y zonas en GeoJSON.
-- `config.py`: rutas y parámetros comunes.
+Deben aparecer `modules`, `scripts`, `data`, `docs` y `README.md`.
 
-## 4. Contratos de integración entre integrantes
+Crea y activa un entorno virtual (solo la primera vez):
 
-### GIS / NASA
-Entregar:
-- `data/geographic/ebejico_boundary.geojson`
-- `data/geographic/agricultural_zones.geojson` (si se construyen zonas)
-- Capas procesadas y metadatos de cada variable.
-
-Formato geográfico recomendado: GeoJSON en EPSG:4326 para intercambio web.
-Para rásteres, acordar previamente formato, resolución, extensión y método de visualización.
-
-### Datos ambientales
-El archivo de entrada inicial es `data/processed/environment_demo.csv`.
-Para reemplazarlo, conservar al menos:
-- `date`: fecha en formato ISO.
-- columnas numéricas para variables.
-- `source`: fuente de los datos.
-- `is_demo`: False para datos reales.
-Documentar unidades y resolución en un archivo de metadatos o diccionario de datos.
-
-### Cultivos / modelo agrícola
-El catálogo se carga desde `data/processed/crops_catalog.csv`.
-El comparador espera una lista de diccionarios con:
-```python
-[
-    {
-        "name": "Nombre del escenario",
-        "description": "Explicación",
-        "scores": {
-            "climate": 0,
-            "soil": 0,
-            "soil_health": 0,
-            "production": 0,
-            "farmer_priority": 0
-        },
-        "limitations": "Limitaciones y supuestos"
-    }
-]
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip
+python3 -m venv .venv
+source .venv/bin/activate
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install pandas
 ```
-Los valores de puntuación deben estar entre 0 y 100 y tener una justificación verificable.
-La interfaz no debe inventar puntuaciones ni presentar escenarios hipotéticos como recomendaciones.
 
-## 5. Buenas prácticas
-1. Mantener intactos los datos originales en `raw`.
-2. No descargar ni procesar imágenes satelitales pesadas al abrir el dashboard.
-3. Preparar capas y tablas antes de iniciar Streamlit.
-4. Registrar fuente, fecha, unidad, resolución y cobertura espacial/temporal.
-5. Diferenciar datos observados, estimados, modelados y sintéticos.
-6. No afirmar precisión a nivel de parcela si la resolución de la fuente no lo permite.
-7. Invalidar caché de Streamlit cuando se actualicen archivos (`st.cache_data`).
+En las siguientes sesiones, solo necesitas:
 
-## 6. Siguiente integración
-Primero sustituir los GeoJSON vacíos por el límite municipal oficial y cargar una capa sencilla.
-Después conectar la tabla ambiental real y, finalmente, consumir la salida del modelo de rotaciones.
+```bash
+cd "/mnt/c/Users/Emmag/OneDrive/Escritorio/Proyecto_NASA/AgroAdapt_Ebejico"
+source .venv/bin/activate
+```
+
+Ejecuta el procesamiento:
+
+```bash
+.venv/bin/python scripts/process_eva.py data/raw/eva/eva_2019_2025_base_agricola.csv
+```
+
+Usa `.venv/bin/python` para ejecutar los comandos del proyecto: en algunos entornos WSL, `python3` puede resolver al intérprete global y no cargar los paquetes instalados en `.venv`.
+
+## Archivos que debe producir
+
+Después de ejecutar el script, revisa:
+
+- `data/processed/eva_ebejico_records.csv`: registros originales filtrados para Ebéjico.
+- `data/processed/eva_ebejico_crop_summary.csv`: resumen por cultivo y año.
+- `data/processed/eva_ebejico_crop_presence.csv`: presencia productiva municipal y contraste con el catálogo agronómico.
+
+## Validaciones incorporadas
+
+- Filtra por código DANE/DIVIPOLA `05240`.
+- Reconoce encabezados con tildes de la base EVA compartida.
+- Convierte decimales escritos con coma o punto a números.
+- Comprueba que se hayan encontrado registros de Ebéjico.
+- Informa cuántos valores numéricos quedaron válidos.
+
+## Importante para el proyecto
+
+EVA aporta evidencia de producción a escala municipal. No indica en qué vereda o parcela está cada cultivo, ni demuestra por sí sola que una especie sea apta para una zona específica. Los cultivos reportados deben contrastarse con UMATA/Secretaría de Agricultura, productores y fuentes técnicas antes de usarlos como recomendación o como rotación definitiva.
+
+El catálogo agronómico inicial conserva estados `pending_local_validation`. No se rellenan requerimientos de suelo, clima o agua sin fuente verificable.
+
+
+## Segunda etapa: análisis temporal EVA
+
+Después de procesar la base municipal, ejecuta:
+
+```bash
+.venv/bin/python scripts/analyze_eva_trends.py
+```
+
+Genera:
+- `data/processed/eva_ebejico_annual_indicators.csv`
+- `data/processed/eva_ebejico_trends.csv`
+- `docs/analisis_tendencias_eva.md`
+
+Las tendencias comparan primer y último año disponible por cultivo. Son indicadores municipales y no equivalen a aptitud de parcela ni recomendación de rotación.
+
+
+## Tercera etapa: catálogo agronómico preliminar
+
+Archivo: `data/processed/catalogo_agronomico_ebejico.csv`. Los atributos técnicos permanecen pendientes de validación; no usar aún como motor de recomendaciones.
+
+
+## Integración preparada (Integrante 2)
+Activa el entorno virtual y sincroniza las fichas técnicas con el catálogo canónico:
+
+```bash
+.venv/bin/python -m scripts.sync_agronomic_catalog
+.venv/bin/python -m scripts.validate_agronomic_data
+.venv/bin/python -m scripts.check_integration_readiness
+```
+
+La sincronización actualiza `data/processed/agronomic_reference_records.csv` y agrega los identificadores de fuente a `technical_source` en `crops_catalog.csv`. Conserva vacíos los atributos pendientes y el estado `pending_local_validation`.
+
+El chequeo ambiental lee `data/processed/environmental_indicators.csv` y genera `data/processed/environmental_readiness.csv`. La plantilla `environmental_indicators_template.csv` define el formato que debe entregar el Integrante 1. `environment_demo.csv` sigue siendo exclusivamente para la demostración de la interfaz. No se inventan temperaturas, humedad, suelos ni pendientes.
+
+Las plantillas de `data/outputs/` documentan el contrato para el Integrante 3; no son evaluaciones ni recomendaciones. Las salidas reales solo deben generarse después de validar los datos y aplicar el modelo.
+Consulta `docs/contrato_integracion_integrantes.md`.

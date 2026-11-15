@@ -1,0 +1,6 @@
+﻿componente,estado,variables_faltantes,observacion
+temperature,pendiente_integrante_1,temperatura_media;temperatura_minima;temperatura_maxima,No se calcula aptitud hasta disponer de datos compatibles y perfiles agronómicos validados.
+water,pendiente_integrante_1,precipitacion;humedad_suelo;evapotranspiracion,No se calcula aptitud hasta disponer de datos compatibles y perfiles agronómicos validados.
+terrain,pendiente_integrante_1,elevacion;pendiente,No se calcula aptitud hasta disponer de datos compatibles y perfiles agronómicos validados.
+soil,pendiente_integrante_1,ph_suelo;textura_suelo;materia_organica;profundidad_suelo,No se calcula aptitud hasta disponer de datos compatibles y perfiles agronómicos validados.
+vegetation,pendiente_integrante_1,ndvi;cobertura_vegetal,No se calcula aptitud hasta disponer de datos compatibles y perfiles agronómicos validados.

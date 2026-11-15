@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Escenario demostrativo A",
+    "description": "Plantilla para probar el contrato de integración; no es recomendación.",
+    "sequence": [
+      "Cultivo 1",
+      "Cultivo 2"
+    ],
+    "scores": {
+      "climate": null,
+      "soil": null,
+      "soil_health": null,
+      "production": null,
+      "farmer_priority": null
+    },
+    "limitations": [
+      "Completar con evidencia local y evaluación técnica."
+    ],
+    "sources": [],
+    "evidence_status": "pending_local_validation"
+  }
+]

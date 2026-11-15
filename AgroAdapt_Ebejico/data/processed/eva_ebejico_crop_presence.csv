@@ -1,0 +1,13 @@
+﻿cultivo,area_sembrada_ha,area_cosechada_ha,produccion_t,anios_reportados,en_catalogo_agronomico,observacion
+Aguacate,157.6,157.6,788.0,"2019, 2020, 2021, 2022, 2023, 2024",True,Existe en el catálogo; completar/validar ficha agronómica
+Cacao,330.0,300.0,144.6,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Café,11824.59,10697.48,13438.24,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Caña,4733.0,4730.0,236500.0,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Frijol,420.0,358.0,487.58,"2019, 2020, 2021, 2022, 2023, 2024, 2025",False,Reportado por EVA; agregar ficha solo después de validación técnica
+Lima,1.0,1.0,12.0,2020,True,Existe en el catálogo; completar/validar ficha agronómica
+Limón,24.0,24.0,312.0,"2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Maracuyá,182.0,177.0,1092.0,"2019, 2020, 2021, 2022, 2023, 2024",True,Existe en el catálogo; completar/validar ficha agronómica
+Maíz,616.0,595.0,696.5,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Plátano,10606.0,10505.0,52525.0,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Tomate,60.0,51.3,2529.0,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica
+Yuca,82.0,68.0,624.1,"2019, 2020, 2021, 2022, 2023, 2024, 2025",True,Existe en el catálogo; completar/validar ficha agronómica

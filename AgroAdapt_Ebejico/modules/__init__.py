@@ -1,1 +1,1 @@
-# Paquete con funciones reutilizables de AgroAdapt.
+"""Componentes de AgroAdapt Ebéjico."""

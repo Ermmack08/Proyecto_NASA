@@ -1,0 +1,13 @@
+﻿crop_id,crop,scientific_name_working,identity_action,technical_note
+AGU,Aguacate,Persea americana,Confirmar variedad y portainjerto,La especie está identificada de forma general; variedad/sistema afectan requerimientos.
+CAC,Cacao,Theobroma cacao,Confirmar clon/material genético y sistema agroforestal,La especie está identificada; manejo depende del material y sombra.
+CAF,Café,Coffea spp.,"Confirmar especie (arábica/robusta), variedad y sistema",No reemplazar spp. sin evidencia local.
+CAN,Caña,Saccharum spp.,Confirmar especie/híbrido y uso panelero o azucarero,La fuente de caña panelera no debe extrapolarse a otro uso.
+FRI,Fríjol,Phaseolus spp. (provisional),"Confirmar especie, variedad y hábito de crecimiento",La referencia consultada describe Phaseolus vulgaris; EVA puede agrupar más de una especie.
+LIM,Lima,Sin asignar,"Identificar si es lima Tahití, limón pajarito u otro cítrico",AGROSAVIA distingue Citrus × latifolia y Citrus aurantiifolia; nombre común ambiguo.
+LIMON,Limón,Citrus spp. (provisional),Identificar especie/cultivar comercial,No asumir Citrus limon: en Colombia “limón” puede usarse para distintos cítricos.
+MAR,Maracuyá,Passiflora edulis (provisional),Confirmar forma botánica/variedad,AGROSAVIA identifica maracuyá amarillo como P. edulis f. flavicarpa.
+MAI,Maíz,Zea mays,Confirmar variedad/híbrido,Requerimientos y ciclo dependen del material y ambiente.
+PLA,Plátano,Musa spp.,Confirmar grupo genómico/cultivar,No asumir Musa AAB sin evidencia local.
+TOM,Tomate,Solanum lycopersicum,Confirmar variedad y sistema de producción,Diferenciar campo abierto e invernadero para usar referencias.
+YUC,Yuca,Manihot esculenta,Confirmar variedad y destino,El ciclo y manejo dependen de variedad y región.

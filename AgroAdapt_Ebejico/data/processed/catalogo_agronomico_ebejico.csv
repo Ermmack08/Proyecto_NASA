@@ -1,0 +1,13 @@
+﻿cultivo_eva,nombre_cientifico_provisional,familia_botanica_provisional,tipo_ciclo_provisional,grupo_funcional_provisional,duracion_ciclo_meses,requerimiento_hidrico,rango_temperatura,requerimiento_suelo,profundidad_raiz,sensibilidad_plagas_enfermedades,compatibilidad_rotacion,observaciones_y_validacion
+Aguacate,Persea americana,Lauraceae,Permanente,Frutal arbóreo,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar variedad y sistema local
+Cacao,Theobroma cacao,Malvaceae,Permanente,Frutal arbóreo,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Validar sistema agroforestal y manejo local
+Café,Coffea spp.,Rubiaceae,Permanente,Cultivo arbustivo,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,"Confirmar especie, variedad y sistema"
+Caña,Saccharum spp.,Poaceae,Permanente / plurianual,Gramínea industrial,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar tipo de caña y sistema de corte
+Frijol,Phaseolus spp.,Fabaceae,Transitorio,Leguminosa,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,"Confirmar especie, variedad, hábito y ciclo"
+Lima,Citrus spp. por confirmar,Rutaceae provisional,Permanente provisional,Cítrico,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Nombre común ambiguo; identificar especie
+Limón,Citrus spp.,Rutaceae,Permanente,Cítrico,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar especie/variedad
+Maracuyá,Passiflora edulis por confirmar,Passifloraceae,Permanente de vida productiva limitada (provisional),Enredadera frutal,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,"Confirmar especie, variedad y duración local"
+Maíz,Zea mays,Poaceae,Transitorio,Cereal,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,"Confirmar variedad, ciclo y calendario"
+Plátano,Musa spp.,Musaceae,Permanente / cosecha continua según sistema,Musácea herbácea,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar cultivar y sistema
+Tomate,Solanum lycopersicum,Solanaceae,Transitorio,Hortaliza,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar tipo y sistema de producción
+Yuca,Manihot esculenta,Euphorbiaceae,Ciclo variable según sistema,Raíz/tubérculo,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Pendiente,Confirmar variedad y duración local
