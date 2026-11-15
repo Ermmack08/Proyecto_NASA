@@ -1,8 +1,0 @@
-# Dependencias GIS. Instalar en un entorno virtual.
-geopandas>=1.0
-rasterio>=1.4
-shapely>=2.0
-pyproj>=3.6
-requests>=2.32
-pandas>=2.2
-numpy>=1.26

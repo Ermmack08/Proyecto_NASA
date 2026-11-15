@@ -1,7 +1,0 @@
-estrategia,tipo,area_apta_km2,aptitud_media,beneficio
-Café + Aguacate,asocio,124.6,0.65,sombrío productivo en zona alta
-Café + Plátano,asocio,68.2,0.59,plátano como sombrío del café
-Maíz → Frijol,rotación,38.3,0.48,dos semestres; el frijol devuelve nitrógeno al suelo
-Maíz → Frijol → Yuca,rotación,34.5,0.47,gramínea + leguminosa (fija N) + raíz; rompe ciclos de plagas
-Frijol → Yuca,rotación,34.5,0.46,zonas más cálidas; yuca tolera suelos pobres
-Aguacate + Frijol,asocio,29.4,0.55,frijol entre calles en los primeros años
