@@ -1,0 +1,40 @@
+{
+  "source": "NASA POWER Monthly and Annual API",
+  "api_url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CPRECTOTCORR%2CRH2M&community=AG&longitude=-75.768&latitude=6.325&start=2016&end=2025&format=JSON",
+  "requested_point": {
+    "latitude": 6.325,
+    "longitude": -75.768,
+    "response_elevation_m": 2074.31
+  },
+  "period": {
+    "start_year": 2016,
+    "end_year": 2025
+  },
+  "time_standard": "LST",
+  "data_sources": [
+    "MERRA2",
+    "POWER"
+  ],
+  "parameters": {
+    "PRECTOTCORR": {
+      "units": "mm/day",
+      "longname": "Precipitation Corrected"
+    },
+    "RH2M": {
+      "units": "%",
+      "longname": "Relative Humidity at 2 Meters"
+    },
+    "T2M": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters"
+    }
+  },
+  "processed_rows": 120,
+  "processed_at_utc": "2026-11-15T14:58:31.454610+00:00",
+  "processing_notes": [
+    "Solo se guardan periodos mensuales; el agregado anual YYYY13 se excluye.",
+    "PRECTOTCORR conserva la unidad mm/day (tasa media diaria del mes).",
+    "Los valores fill_value se guardan vacíos; no se convierten en cero.",
+    "El punto representa contexto regional y no una medición de parcela."
+  ]
+}

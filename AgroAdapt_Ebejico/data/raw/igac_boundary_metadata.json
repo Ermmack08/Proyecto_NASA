@@ -1,0 +1,22 @@
+{
+  "source": "Instituto Geográfico Agustín Codazzi (IGAC)",
+  "dataset": "Municipios temáticas / Base de Datos Geográfica ET",
+  "source_item_id": "58dfbf63c6c54f98a5c4ff6c565969e4",
+  "source_item_url": "https://www.arcgis.com/sharing/rest/content/items/58dfbf63c6c54f98a5c4ff6c565969e4?f=pjson",
+  "api_url": "https://services2.arcgis.com/RVvWzU3lgJISqdke/arcgis/rest/services/Municipios_tem%C3%A1ticas/FeatureServer/0/query?where=MpCodigo%3D%2705240%27&outFields=MpCodigo%2CMpNombre%2CDepto%2CMpNorma%2CMpArea&returnGeometry=true&outSR=4326&f=geojson",
+  "municipality": {
+    "name": "Ebéjico",
+    "department": "Antioquia",
+    "dane_code": "05240"
+  },
+  "geometry_type": "Polygon",
+  "coordinate_reference_system": "EPSG:4326",
+  "source_license_info": "El elemento de ArcGIS consultado no declara una licencia específica; verificar las condiciones de uso con IGAC.",
+  "retrieved_at_utc": "2026-11-15T15:20:04.784021+00:00",
+  "processing_notes": [
+    "La consulta se filtró por el código municipal DANE 05240.",
+    "El servicio se consultó con outSR=4326.",
+    "El archivo procesado conserva la geometría y atributos devueltos; se eliminó el miembro CRS heredado de la respuesta para GeoJSON web.",
+    "El límite municipal no representa linderos prediales ni parcelas agrícolas."
+  ]
+}

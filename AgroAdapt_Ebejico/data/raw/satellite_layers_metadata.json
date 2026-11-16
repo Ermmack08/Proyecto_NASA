@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-11-15T18:06:53.710060+00:00",
+  "boundary": "data/geographic/ebejico_boundary.geojson",
+  "products": {
+    "sentinel2_ndvi": {
+      "acquisition_date": "2026-11-11",
+      "platform": "sentinel-2b",
+      "scene_ids": [
+        "S2B_18NUM_20261111_0_L2A",
+        "S2B_18NVM_20261111_0_L2A",
+        "S2B_18NUN_20261111_0_L2A",
+        "S2B_18NVN_20261111_0_L2A"
+      ],
+      "mean_scene_cloud_cover_percent": 43.45,
+      "valid_coverage_percent": 48.36,
+      "mean_ndvi": 0.7455,
+      "median_ndvi": 0.7941,
+      "minimum_ndvi": -0.3984,
+      "maximum_ndvi": 0.9992,
+      "resolution_m": 10,
+      "crs": "EPSG:32618",
+      "bounds": [
+        [
+          6.224863723158918,
+          -75.85427362003601
+        ],
+        [
+          6.420011024683726,
+          -75.70761485688719
+        ]
+      ],
+      "source": "Copernicus Sentinel-2 Level-2A via Element 84 Earth Search (AWS Open Data)",
+      "preview_file": "sentinel2_ndvi_preview.png",
+      "rgb_preview_file": "sentinel2_rgb_preview.png",
+      "ndvi_file": "sentinel2_ndvi.tif",
+      "rgb_file": "sentinel2_rgb.tif",
+      "processing": "NDVI=(B08-B04)/(B08+B04); SCL classes 0,1,2,3,7,8,9,10,11 and zero-valued reflectance are masked. RGB preview uses a 2nd-98th percentile visual stretch."
+    },
+    "sentinel2_rgb": {
+      "acquisition_date": "2026-11-11",
+      "platform": "sentinel-2b",
+      "scene_ids": [
+        "S2B_18NUM_20261111_0_L2A",
+        "S2B_18NVM_20261111_0_L2A",
+        "S2B_18NUN_20261111_0_L2A",
+        "S2B_18NVN_20261111_0_L2A"
+      ],
+      "mean_scene_cloud_cover_percent": 43.45,
+      "valid_coverage_percent": 48.36,
+      "resolution_m": 10,
+      "crs": "EPSG:32618",
+      "bounds": [
+        [
+          6.224863723158918,
+          -75.85427362003601
+        ],
+        [
+          6.420011024683726,
+          -75.70761485688719
+        ]
+      ],
+      "source": "Copernicus Sentinel-2 Level-2A via Element 84 Earth Search (AWS Open Data)",
+      "preview_file": "sentinel2_rgb_preview.png",
+      "rgb_file": "sentinel2_rgb.tif",
+      "processing": "RGB natural color B04/B03/B02 with visual stretch."
+    },
+    "nasadem_elevation": {
+      "item_id": "NASADEM_HGT_n06w076",
+      "source": "NASA/JPL/USGS NASADEM HGT v001 via Microsoft Planetary Computer",
+      "resolution_m_approx": 30,
+      "resolution_degrees": 0.0002777777777777778,
+      "crs": "EPSG:4326",
+      "elevation_min_m": 436.0,
+      "elevation_mean_m": 1252.6,
+      "elevation_max_m": 2702.0,
+      "bounds": [
+        [
+          6.22486111111111,
+          -75.85430555555556
+        ],
+        [
+          6.420138888888888,
+          -75.7076388888889
+        ]
+      ],
+      "preview_file": "nasadem_elevation_preview.png",
+      "elevation_file": "nasadem_elevation.tif",
+      "processing": "NASADEM elevation clipped to the municipal boundary; the preview colors indicate relative elevation."
+    }
+  },
+  "limitations": [
+    "Sentinel-2 cloud cover is reported per tile; valid coverage is calculated after SCL masking within the municipal boundary.",
+    "NDVI is a vegetation index, not a crop identification or parcel-level agronomic diagnosis.",
+    "NASADEM is a terrain model derived primarily from SRTM, not a field elevation survey.",
+    "Products represent the municipality and do not resolve individual farms or parcels."
+  ]
+}
